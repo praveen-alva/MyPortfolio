@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Download, Bell } from 'lucide-react';
 import { io } from 'socket.io-client';
-// import Mernres1 from './assets/Mernres1.pdf';
+import Mernres1 from './assets/Mernres1.pdf';
 import logo from './assets/logo.png';
 
-const socket = io('http://localhost:5000'); // ✅ Adjust to your backend URL
+const socket = io('https://mybackend-dm0d.onrender.com'); // ✅ Adjust to your backend URL
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
