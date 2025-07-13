@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Download, Bell } from 'lucide-react';
 import { io } from 'socket.io-client';
-import Mernres1 from '../../assets/MernRes1.pdf';
+
 
 
 import logo from '../assets/logo.png';
@@ -96,7 +96,7 @@ const Header = () => {
             <a href="https://www.linkedin.com/in/praveenalva/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <Linkedin size={20} />
             </a>
-            <a href={Mernres1} download className="text-sm bg-gray-800 text-white px-4 py-2 rounded-md flex items-center gap-2">
+            <a href="" download className="text-sm bg-gray-800 text-white px-4 py-2 rounded-md flex items-center gap-2">
               <Download size={16} />
               Resume
             </a>
