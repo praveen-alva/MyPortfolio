@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import Mernres1 from './assets/Mernres1.pdf';
 import logo from './assets/logo.png';
 
-const socket = io('https://mybackend-dm0d.onrender.com'); // ✅ Adjust to your backend URL
+const socket = io('https://mybackend-dm0d.onrender.com'); //  backend URL
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
