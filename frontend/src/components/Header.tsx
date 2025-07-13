@@ -3,7 +3,7 @@ import { Menu, X, Github, Linkedin, Mail, Download, Bell } from 'lucide-react';
 import { io } from 'socket.io-client';
 import Mernres1 from '../assets/Mernres1.pdf';
 
-import logo from './assets/logo.png';
+import logo from '../assets/logo.png';
 
 const socket = io('https://mybackend-dm0d.onrender.com'); //  backend URL
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Mail, Github, Linkedin, Download } from 'lucide-react';
-import pic from './assets/pic.webp';
+import pic from '../assets/pic.webp';
 
 
 const Hero = () => {
