@@ -11,13 +11,22 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173'
+    origin:  ['http://localhost:5173', // For local dev
+    'https://myportfolio-7sf8.onrender.com' // For deployed frontend
+    ],
+    methods: ['GET', 'POST'],
+    credentials: true
   }
 });
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:5173' }));
-app.use(express.json());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://myportfolio-7sf8.onrender.com'
+  ],
+  credentials: true
+}));
 
 // Attach io to request object
 app.use((req, res, next) => {
