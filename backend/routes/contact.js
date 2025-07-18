@@ -2,6 +2,12 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const router = express.Router();
 
+// GET route (e.g., for health check or testing)
+router.get('/', (req, res) => {
+  res.status(200).json({ message: 'GET request to /api/contact is working.' });
+});
+
+// POST route to send email
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
@@ -35,7 +41,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     console.error('Email error:', error);
     res.status(500).json({ message: 'Failed to send message. Please try again later.' });
-    console.log("Body Received ",req.body);
+    console.log('Body Received:', req.body);
   }
 });
 
