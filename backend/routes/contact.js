@@ -1,18 +1,15 @@
 const express = require('express');
-const router = express.Router();
 const nodemailer = require('nodemailer');
-const Contact = require('../models/contact');
+const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   if (!name || !email || !subject || !message) {
-    return res.status(400).json({ message: 'All fields are required' });
+    return res.status(400).json({ message: 'All fields are required.' });
   }
 
   try {
-    const newMessage = await Contact.create({ name, email, subject, message });
-
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -21,30 +18,24 @@ router.post('/', async (req, res) => {
       }
     });
 
-    const mailOptions = {
-      from: email,
+    await transporter.sendMail({
+      from: process.env.SMTP_EMAIL,
       to: process.env.RECEIVER_EMAIL,
       subject: `New message from ${name}: ${subject}`,
-      text: message,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Subject:</strong> ${subject}</p>
-             <p><strong>Message:</strong><br/>${message}</p>`
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    // ✅ Emit real-time event via Socket.io
-    req.io.emit('new-notification', {
-      title: `Message from ${name}`,
-      body: subject,
-      timestamp: new Date()
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
     });
 
-    res.status(200).json({ message: 'Message saved and email sent!', data: newMessage });
+    res.status(200).json({ message: 'Message sent successfully!' });
   } catch (error) {
-    console.error('Backend error:', error);
-    res.status(500).json({ message: 'Message is not saved', error: error.message });
+    console.error('Email error:', error);
+    res.status(500).json({ message: 'Failed to send message. Please try again later.' });
+    console.log("Body Received ",req.body);
   }
 });
 

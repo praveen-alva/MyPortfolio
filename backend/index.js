@@ -9,17 +9,18 @@ const contactRoutes = require('./routes/contact');
 
 const app = express();
 const server = http.createServer(app);
+
 const io = new Server(server, {
   cors: {
-    origin:  ['http://localhost:5173', // For local dev
-    'https://myportfolio-7sf8.onrender.com' // For deployed frontend
+    origin: [
+      'http://localhost:5173',
+      'https://myportfolio-7sf8.onrender.com'
     ],
     methods: ['GET', 'POST'],
     credentials: true
   }
 });
 
-// Middleware
 app.use(cors({
   origin: [
     'http://localhost:5173',
@@ -28,24 +29,24 @@ app.use(cors({
   credentials: true
 }));
 
-// Attach io to request object
+app.use(express.json());
+
 app.use((req, res, next) => {
   req.io = io;
   next();
 });
 
-// Routes
 app.use('/api/contact', contactRoutes);
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
   .then(() => {
     console.log('✅ MongoDB connected');
-    server.listen(process.env.PORT || 5000, () => {
-      console.log(`🚀 Server running on port ${process.env.PORT || 5000}`);
+    const PORT = process.env.PORT || 5000;
+    server.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
     });
   })
   .catch(err => {
