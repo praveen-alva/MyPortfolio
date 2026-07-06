@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
 // POST route to send email
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
+  
+  console.log('Body Recieved',req.body);
 
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ message: 'All fields are required.' });
