@@ -14,15 +14,20 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
+    // ✅ Log the form data to browser console
+    console.log('📨 Form Data Being Sent:', formData);
+  
     try {
       const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-
+  
       const data = await res.json();
+      console.log('📬 Response from backend:', data); // ✅ log response
+  
       if (res.ok) {
         toast.success(data.message || 'Message sent!');
         setFormData({ name: '', email: '', subject: '', message: '' });
@@ -30,12 +35,13 @@ const Contact = () => {
         toast.error(data.message || 'Something went wrong.');
       }
     } catch (err) {
+      console.error('❌ Error sending message:', err); // ✅ log errors
       toast.error('Server error. Try again later.');
     } finally {
       setLoading(false);
     }
   };
-
+  
   const contactInfo = [
     { icon: <Mail size={20} />, label: 'Email', value: 'praveenalva83@gmail.com', link: 'mailto:praveenalva83@gmail.com' },
     { icon: <Phone size={20} />, label: 'Phone', value: '+91 8374072244', link: 'tel:+918374072244' },

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Mail, Github, Linkedin, Download } from 'lucide-react';
 import pic from '../assets/pic.webp';
+import pic2 from '../assets/pic2.jpg';
+
 
 
 const Hero = () => {
@@ -77,7 +79,7 @@ const Hero = () => {
         {/* Right Image Section */}
         <div className="flex justify-center md:justify-end">
           <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-[0_0_40px_10px_rgba(236,72,153,0.3)] overflow-hidden">
-            <img src={pic} alt="Profile" className="w-full h-full object-cover rounded-full" />
+            <img src={pic2} alt="Profile" className="w-full h-full object-cover rounded-full" />
           </div>
         </div>
       </div>
