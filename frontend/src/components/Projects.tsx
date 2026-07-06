@@ -77,56 +77,58 @@ const Projects = () => {
       team: 'Solo Project',
       highlights: ['Clean UI', 'Local Storage', 'React Hooks']
     },
-  
     {
-  id: 4,
-  title: 'AuthFlow',
-  subtitle: 'Java Full Stack Authentication System',
-  description: 'A full-stack authentication platform developed using Java Servlets, JDBC, and MySQL that provides secure user registration and login functionality with efficient database integration.',
-  
-  longDescription: 'AuthFlow simplifies user authentication and management with a secure and structured workflow. Users can create accounts, log in with validated credentials, and securely access the application. The system integrates Java Servlets with JDBC and MySQL for handling authentication logic and data persistence while using Apache Tomcat for deployment.',
-
-  features: [
-    'Secure user registration with input validation',
-    'User login authentication with database verification',
-    'JDBC integration for database connectivity',
-    'MySQL-based user data management',
-    'Apache Tomcat server deployment',
-    'Responsive user interface with clean design'
-  ],
-
-  techStack: [
-    'Java',
-    'Servlets',
-    'JDBC',
-    'MySQL',
-    'Apache Tomcat',
-    'HTML',
-    'CSS'
-  ],
-
-  demoLink: '#',
-  
-  githubLink: 'https://github.com/praveen-alva/ServletLoginProject',
-
-  image: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200',
-
-  category: 'Java Full-Stack',
-
-  status: 'Production',
-
-  timeline: '3 Days',
-
-  team: 'Solo Project',
-
-  highlights: [
-    'Secure Authentication',
-    'Database Integration',
-    'Java Backend'
-  ]
-}];
+      id: 4,
+      title: 'AuthFlow',
+      subtitle: 'Java Full Stack Authentication System',
+      description:
+        'A full-stack authentication platform developed using Java Servlets, JDBC, and MySQL that provides secure user registration and login functionality with efficient database integration.',
     
-
+      longDescription:
+        'AuthFlow simplifies user authentication and management with a secure workflow. Users can create accounts, log in with validated credentials, and securely access the application. The system integrates Java Servlets with JDBC and MySQL for authentication logic and data persistence while using Apache Tomcat for deployment.',
+    
+      features: [
+        'Secure user registration with input validation',
+        'User login authentication with database verification',
+        'JDBC integration for database connectivity',
+        'MySQL-based user data management',
+        'Apache Tomcat server deployment',
+        'Responsive user interface with clean design'
+      ],
+    
+      techStack: [
+        'Java',
+        'Servlets',
+        'JDBC',
+        'MySQL',
+        'Apache Tomcat',
+        'HTML',
+        'CSS'
+      ],
+    
+      demoLink: '#',
+    
+      githubLink:
+        'https://github.com/praveen-alva/ServletLoginProject',
+    
+      image:
+        'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    
+      category: 'Full-Stack',
+    
+      status: 'Production',
+    
+      timeline: '3 Days',
+    
+      team: 'Solo Project',
+    
+      highlights: [
+        'Secure Authentication',
+        'Database Integration',
+        'Java Backend'
+      ]
+    }
+  ];
 
   const getCategoryColor = (category: string) => {
     switch (category) {
