@@ -76,8 +76,8 @@ const Projects = () => {
       timeline: '1 Week',
       team: 'Solo Project',
       highlights: ['Clean UI', 'Local Storage', 'React Hooks']
-    }
-  ],
+    },
+  
     {
   id: 4,
   title: 'AuthFlow',
