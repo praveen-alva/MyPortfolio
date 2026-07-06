@@ -123,7 +123,9 @@ const Projects = () => {
     'Secure Authentication',
     'Database Integration',
     'Java Backend'
-  ];
+  ]
+}];
+    
 
 
   const getCategoryColor = (category: string) => {
