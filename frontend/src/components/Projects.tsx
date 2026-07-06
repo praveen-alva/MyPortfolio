@@ -124,7 +124,7 @@ const Projects = () => {
     'Database Integration',
     'Java Backend'
   ];
-}
+
 
   const getCategoryColor = (category: string) => {
     switch (category) {
