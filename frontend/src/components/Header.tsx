@@ -46,24 +46,29 @@ const Header = () => {
   return (
     <header className={`fixed w-full z-50 top-0 transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           <div className="cursor-pointer flex items-center" onClick={() => scrollToSection('home')}>
-            <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain"
+            />
+
           </div>
 
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-black-300 hover:text-white text-sm font-bold text-xl"
+                className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base font-semibold"
               >
                 {item.name}
               </button>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4 relative">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 relative">
             {/* 🔔 Notification Bell */}
             <div className="relative">
               <button onClick={() => setShowNotifications(!showNotifications)} className="text-gray-400 hover:text-white">
@@ -96,13 +101,13 @@ const Header = () => {
             <a href="https://www.linkedin.com/in/praveenalva/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <Linkedin size={20} />
             </a>
-            <a href="" download className="text-sm bg-gray-800 text-white px-4 py-2 rounded-md flex items-center gap-2">
+            <a href="" download className="bg-gray-800 hover:bg-gray-700 text-white px-3 lg:px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition">
               <Download size={16} />
               Resume
             </a>
             <button
               onClick={() => window.open('mailto:praveenalva83@gmail.com')}
-              className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 lg:px-4 py-2 rounded-lg flex items-center gap-2 text-sm transition"
             >
               <Mail size={16} />
               Hire Me
@@ -110,7 +115,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -119,7 +124,7 @@ const Header = () => {
 
         {/* Mobile Menu Content */}
         {isMenuOpen && (
-          <div className="md:hidden bg-[#0f172a] rounded-lg p-4 space-y-4">
+          <div className="lg:hidden absolute left-0 top-full w-full bg-[#0f172a] shadow-xl border-t border-slate-700">
             {navItems.map(item => (
               <button
                 key={item.id}
