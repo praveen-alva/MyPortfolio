@@ -20,8 +20,8 @@ const Projects = () => {
         'File attachment support for detailed reporting'
       ],
       techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'JWT Auth'],
-      demoLink: 'https://smartbridge-project-frontend.onrender.com/',
-      githubLink: 'https://github.com/praveen-alva/SmartBridge_Project',
+      demoLink: 'https://resolvenow-tx4o.onrender.com/',
+      githubLink: 'https://github.com/praveen-alva/OnlineComplaintManagementSystem',
       image: 'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Full-Stack',
       status: 'Production',
